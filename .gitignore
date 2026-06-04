@@ -1,0 +1,30 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.env/
+
+# IDE files
+.idea/
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Pytest cache
+.pytest_cache/
+
+# SQLAlchemy / SQLite
+*.db
+
+# Environment variables / secrets
+.env
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# Logs
+*.log
