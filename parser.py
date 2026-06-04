@@ -33,7 +33,7 @@ def init_database():
 def parse_hl7_file(file_path):
     """Liest die HL7-Datei ein und extrahiert den Patienten."""
     if not os.path.exists(file_path):
-        print(f"Fehler: Datei '{file_path}' nicht gefunden. Bitte lade sie zuerst herunter.")
+        print(f"Fehler: Datei '{file_path}' nicht gefunden.")
         return None
 
     with open(file_path, 'r', encoding='utf-8') as file:
