@@ -41,4 +41,15 @@ def parse_hl7_message(message):
 
             parsed_data["patient_class"] = fields[2]
 
+            if len(fields) > 19:
+                parsed_data["visit_number"] = fields[19]
+            else:
+                parsed_data["visit_number"] = None
+        
+        elif segment_type == "MSH":
+
+            parsed_data["message_control_id"] = fields[9]
+
+            parsed_data["message_type"] = fields[8]
+
     return parsed_data

@@ -25,8 +25,19 @@ class Encounter(Base):
 
     encounter_id = Column(Integer, primary_key=True, autoincrement=True)
 
+    visit_number = Column(String, unique=True)
+
     patient_id = Column(String, ForeignKey("patients.patient_id"))
 
     attending_doctor = Column(String)
 
     patient_class = Column(String)
+
+
+class ProcessedMessage(Base):
+    __tablename__ = "processed_messages"
+
+    message_control_id = Column(
+        String,
+        primary_key=True
+    )
