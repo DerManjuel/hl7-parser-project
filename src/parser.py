@@ -6,6 +6,11 @@
 
 from datetime import datetime
 
+
+def safe_get(fields, index):
+    return fields[index] if len(fields) > index else None
+
+
 def parse_hl7_message(message):
 
     segments = message.strip().split("\n")
@@ -23,11 +28,16 @@ def parse_hl7_message(message):
 
             parsed_data["patient_id"] = fields[3].split("^")[0]
 
-            name = fields[5].split("^")
+            raw_name = safe_get(fields, 5)
 
-            parsed_data["last_name"] = name[0]
+            if raw_name:
+                parts = raw_name.split("^")
+            else:
+                parts = [None, None]
+            
+            parsed_data["last_name"] = parts[0] if parts[0] else None
 
-            parsed_data["first_name"] = name[1]
+            parsed_data["first_name"] = parts[1] if parts[1] else None
 
             parsed_data["dob"] = datetime.strptime(fields[7], "%Y%m%d").date()
 
@@ -35,20 +45,20 @@ def parse_hl7_message(message):
 
         elif segment_type == "PV1":
 
-            doctor = fields[7].split("^")
+            doctor = fields[7].split("^") if len(fields) > 7 else [None, None, None]
 
             parsed_data["attending_doctor"] = f"{doctor[2]} {doctor[1]}"
 
             parsed_data["patient_class"] = fields[2]
 
             if len(fields) > 19:
-                parsed_data["visit_number"] = fields[19]
+                parsed_data["visit_number"] = fields[19] if fields[19] else None
             else:
                 parsed_data["visit_number"] = None
         
         elif segment_type == "MSH":
 
-            parsed_data["message_control_id"] = fields[9]
+            parsed_data["message_control_id"] = fields[9] if fields[9] else None
 
             parsed_data["message_type"] = fields[8]
 
