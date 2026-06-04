@@ -28,3 +28,13 @@
 Daher sind HL7-Bibliotheken sinnvoll.
 Bspw.: hl7apy, python-hl7 & simple-hl7.
 
+## ToDo
+HL7 Message File‚
+      ↓
+HL7 Parser
+      ↓
+Validation Layer
+      ↓
+SQLite/PostgreSQL
+      ↓
+CLI Query Tool
