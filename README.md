@@ -57,3 +57,18 @@ Bspw.: hl7apy, python-hl7 & simple-hl7.
 - idempotency
 - schema design
 - business logic separation
+
+## ToDo
+### Parser improvements
+- safe indexing helper
+- safe name parsing
+- safe datetime parsing
+- return None for missing fields
+- never throw on bad HL7
+### Tests
+- missing name
+- partial name
+- broken HL7
+- missing DOB
+- empty message
+- tests for other python scripts
