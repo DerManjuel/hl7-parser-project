@@ -38,3 +38,37 @@ Validation Layer
 SQLite/PostgreSQL
       ↓
 CLI Query Tool
+
+## Structure
+
+hl7v2-patient-parser/
+│
+├── data/
+│   └── sample_adt_a08.hl7
+│
+├── src/
+│   ├── parser.py
+│   ├── database.py
+│   ├── models.py
+│   ├── hl7_service.py
+│   └── main.py
+│
+├── tests/
+│   └── test_parser.py
+│
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── architecture.png
+
+## Runthrough
+
+main.py
+   ↓
+hl7_service.py
+   ↓
+parser.py  → extracts HL7 fields
+   ↓
+models.py  → defines DB structure
+   ↓
+database.py → creates DB connection/session
