@@ -1,4 +1,5 @@
 # HL7 v2 Parser Project
+Developed a healthcare interoperability backend system in Python that parses HL7 v2 ADT messages, performs patient and encounter reconciliation, and persists structured clinical data into a relational database using SQLAlchemy and SQLite. Implemented idempotent message processing and layered service architecture following healthcare integration patterns.
 
 ## Architecture
 
@@ -38,3 +39,21 @@
  
 Daher sind HL7-Bibliotheken sinnvoll.
 Bspw.: hl7apy, python-hl7 & simple-hl7.
+
+## Skills
+### Backend Skills
+- Python
+- SQLAlchemy
+- SQLite
+- ORM usage
+- layered architecture
+### Healthcare Skills
+- HL7 v2
+- ADT messaging
+- encounter reconciliation
+- interoperability
+### Engineering Skills
+- ETL pipelines
+- idempotency
+- schema design
+- business logic separation
